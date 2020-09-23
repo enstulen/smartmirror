@@ -1,0 +1,3 @@
+[submodule "modules/MMM-Entur-tavle"]
+	path = modules/MMM-Entur-tavle
+	url = https://github.com/Arve/MMM-Entur-tavle
