@@ -1,13 +1,3 @@
-/* Magic Mirror Config Sample
- *
- * By Michael Teeuw https://michaelteeuw.nl
- * MIT Licensed.
- *
- * For more information on how you can configure this file
- * See https://github.com/MichMich/MagicMirror#configuration
- *
- */
-
 var config = {
 	address: "localhost", 	// Address to listen on, can be:
 	// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
@@ -27,7 +17,7 @@ var config = {
 	httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
 	httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
 
-	language: "en",
+	language: "nb",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"],
 	timeFormat: 24,
 	units: "metric",
@@ -47,11 +37,11 @@ var config = {
 		},
 		{
 			module: "clock",
-			position: "top_left"
+			position: "top_left",
 		},
 		{
 			module: "calendar",
-			header: "US Holidays",
+			header: "Kalender",
 			position: "top_left",
 			config: {
 				calendars: [
@@ -68,7 +58,41 @@ var config = {
 		},
 		{
 			module: "compliments",
-			position: "lower_third"
+			position: "lower_third",
+			config: {
+				compliments: {
+					anytime: [
+						"Hey there sexy!",
+						"Assa..du ser DIGG ut",
+						"WOW 🔥",
+						"OMG 😍"
+					],
+					day_sunny: [
+						"Fint vær i dag! 🌞",
+						"Kom deg ut og nyt dagen! 🌤",
+					],
+					morning: [
+						"Morn, kjekken!",
+						"Ha en fin dag i dag!",
+						"Sovet godt eller, bro?",
+						"Du er kickass, ta tagen med storm!"
+					],
+					afternoon: [
+						"Looking good, bruh!!",
+						"Du ser fantastisk ut 👌🏻",
+						"Daaymn 🔥!",
+						"Du er on fire 🔥"
+					],
+					evening: [
+						"På tide å legge seg?",
+						"Sov godt!",
+						"Natta!"
+					],
+					"....-01-01": [
+						"Godt nyttår! 🥳"
+					]
+				}
+			}
 		},
 		{
 			module: "currentweather",
@@ -76,13 +100,14 @@ var config = {
 			config: {
 				location: "Oslo",
 				locationID: "", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: "b5439293d85956e817090c6549598c4d"
+				appid: "b5439293d85956e817090c6549598c4d",
+				
 			}
 		},
 		{
 			module: "weatherforecast",
 			position: "top_right",
-			header: "Weather Forecast",
+			header: "Værmelding for",
 			config: {
 				location: "Oslo",
 				locationID: "", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
@@ -95,8 +120,8 @@ var config = {
 			config: {
 				feeds: [
 					{
-						title: "New York Times",
-						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+						title: "VG",
+						url: "https://www.vg.no/rss/feed/forsiden/"
 					}
 				],
 				showSourceTitle: true,
@@ -104,6 +129,17 @@ var config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			}
+		},
+		{
+			module: "MMM-Entur-tavle",
+			position: "top_right",
+			config: {
+				stopId: '6056',
+				stopType: 'StopPlace',
+				numResults: 5,
+				showName: true,
+				highlightRealtime: true,
+    }
 		},
 	]
 };
